@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI CLACULATOR</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+	<style type="text/css">
+		.forimg {
+             background: url({{ url_for('static', filename='backimage4.jpg') }});
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              height: 100%; 
+            }
+            .forimg2 {
+             background: url({{ url_for('static', filename='backimage.jpg') }});
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              height: 100%; 
+              .forimg3 {
+             background: url({{ url_for('static', filename='backimage2.jpg') }});
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              height: 100%; 
+            }
+	</style>	
+</head>
+<body>
+	<div class="forimg">
+	<div class="container">
+		<h1 style="text-align: center; color: rgb(0,256,0);">BMI CAlCULATOR</h1><br>
+    <img  src="{{url_for('static', filename='bmi_calculator2.png')}}"  alt="Card image" style="width:50%; hight: 0px; padding: 5px; float: right;">
+    <br>
+
+    </div>
+  <div class="container">
+  	
+     <div class="card mb-5" style="width:400px">
+    <div class="jumbotron">
+    <div class="card-body">
+      <h2 class="card-title" style="color: green">BMI</h2>
+
+     <h6>Calculate Your Body Mass Index
+    Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.</h6>
+
+    <h6>Enter your weight and height using standard or metric measures.</h6>
+    <h6>Select "Compute BMI" and your BMI will appear below.</h6>
+     <form method="POST" action="/">
+        <div class="form-group">
+            <label>Enter your weight in KG:</label>
+            <input type="text" class="form-control w-50" placeholder="weight(kg)" name="weight">
+        </div>
+        <div class="form-group">
+           <label>Enter your hight in CM:</label>
+            <input type="text" class="form-control w-50" placeholder="height(cms)" name="height">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+     </form><br><br>
+     <div>
+         {% if bmi %}
+	       <h2>
+           Your BMI is {{ bmi }}
+            </h2>
+	      {% endif %}
+	  </div>
+	 </div>     
+      </div>
+    </div>
+    </div>
+    <div class="forimg2">
+    <div class="row">
+      <div class="col-sm-4">
+      <img  src="{{url_for('static', filename='bmi2.jpg')}}"  alt="Card image" style="width:50%; hight: 0px; padding: 0px; float: right;">
+      </div>
+      <div class="col-sm-8" style="color: white">	
+       <b><h4>BMI introduction</h4>
+     <p>BMI is a measurement of a person's leanness or corpulence based on their height and weight, and is intended to quantify tissue mass. It is widely used as a general indicator of whether a person has a healthy body weight for their height. Specifically, the value obtained from the calculation of BMI is used to categorize whether a person is underweight, normal weight, overweight, or obese depending on what range the value falls between. These ranges of BMI vary based on factors such as region and age, and are sometimes further divided into subcategories such as severely underweight or very severely obese. Being overweight or underweight can have significant health effects, so while BMI is an imperfect measure of healthy body weight, it is a useful indicator of whether any additional testing or action is required. Refer to the table below to see the different categories based on BMI that is used by the calculator.</p><b>
+      </div>
+    </div>
+  </div>
+  </div>
+  <br>
+  <div class="container text-primary">
+  <div class="forimg3">	
+  <h4 >Limitations of BMI : </h4>
+<p class="text-dark">Although BMI is a widely used and useful indicator of healthy body weight, it does have its limitations. BMI is only an estimate that cannot take body composition into account. Due to a wide variety of body types as well as distribution of muscle, bone mass, and fat, BMI should be considered along with other measurements rather than being used as the sole method for determining a person's healthy body weight.
+</p>
+<h4>In adults :</h4>
+
+<p class="text-dark">BMI cannot be fully accurate because it is a measure of excess body weight, rather than excess body fat. BMI is further influenced by factors such as age, sex, ethnicity, muscle mass, and body fat, and activity level, among others. For example, an older person who is considered a healthy weight, but is completely inactive in their daily life may have significant amounts of excess body fat even though they are not heavy. This would be considered unhealthy, while a younger person with higher muscle composition of the same BMI would be considered healthy. In athletes, particularly bodybuilders who would be considered overweight due to muscle being heavier than fat, it is entirely possible that they are actually at a healthy weight for their body composition. Generally, according to the CDC:</p>
+
+<p class="text-dark">Older adults tend to have more body fat than younger adults with the same BMI.
+Women tend to have more body fat than men for an equivalent BMI.
+Muscular individuals and highly trained athletes may have higher BMIs due to large muscle mass.
+In children and adolescents:</p>
+
+<p class="text-dark">The same factors that limit the efficacy of BMI for adults can also apply to children and adolescents. Additionally, height and level of sexual maturation can influence BMI and body fat among children. BMI is a better indicator of excess body fat for obese children than it is for overweight children, whose BMI could be a result of increased levels of either fat or fat-free mass (all body components except for fat, which includes water, organs, muscle, etc.). In thin children, the difference in BMI can also be due to fat-free mass.</p>
+
+<p class="text-dark">That being said, BMI is fairly indicative of body fat for 90-95% of the population, and can effectively be used along with other measures to help determine an individual's healthy body weight.</p>
+</div>
+</div>
+</body>
+</html>
